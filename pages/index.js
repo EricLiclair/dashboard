@@ -10,7 +10,7 @@ import NotAllowed from '../components/home/notAllowed';
 import { Box } from '@mui/system';
 export default function Home() {
   const { user } = useContext(UserContext);
-  
+
   // Can take only 0 or 1
   const [value, setValue] = useState(0);
   const handleChange = (event, newValue) => {
@@ -32,9 +32,7 @@ export default function Home() {
           <StyledTab label="Graph" />
           <StyledTab disabled label="Disabled" />
         </StyledTabs>
-        <Paper elevation={0} sx={{ padding: '0 0.5rem', marginTop: '1rem' }}>
-          {views[value]}
-        </Paper>
+        {views[value]}
       </Box>
     ) : <NotAllowed />
   ) : <SignIn />

@@ -21,7 +21,7 @@ export const GetStockData = () => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(false);
 
-    const url = 'https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=IBM&interval=60min&apikey=2EWTQJWH507WLYYV';
+    const url = 'https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=IBM&interval=60min&apikey=2RDG8P2VJNWD4HK5';
     useEffect(async () => {
         try {
             const response = await fetch(url);
