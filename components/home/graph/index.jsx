@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Select, MenuItem, CircularProgress, Box, FormControl, InputLabel, Paper } from '@mui/material';
+import { Select, MenuItem, CircularProgress, Box, FormControl, InputLabel, Paper, Typography } from '@mui/material';
 import { LineChart, Line, XAxis, Legend, Tooltip, ResponsiveContainer } from 'recharts';
 const data = [
     {
@@ -53,36 +53,17 @@ export const GetStockData = () => {
 
 export default function Graph() {
     const [data, loading, error] = GetStockData();
-    const [type, setType] = useState('high');
-    const handleChange = (event) => {
-        setType(event.target.value);
-    };
     console.log(data)
     return (
         <>
             {
                 loading ? <CircularProgress size={32} /> :
                     <Box sx={{ height: 800, padding: '1rem' }}>
-                        <FormControl>
-                            <InputLabel id="demo-simple-select-label">Value Type</InputLabel>
-                            <Select
-                                labelId="demo-simple-select-label"
-                                id="demo-simple-select"
-                                value={type}
-                                label="Value Type"
-                                onChange={handleChange}
-                            >
-                                <MenuItem value='high'>Stock High</MenuItem>
-                                <MenuItem value='low'>Stock Low</MenuItem>
-                                <MenuItem value='open'>Stock Opening</MenuItem>
-                                <MenuItem value='close'>Stock Closing</MenuItem>
-                                <MenuItem value='volume'>Stock Volume</MenuItem>
-                                <MenuItem value='marketCap'>Market Cap</MenuItem>
-                            </Select>
-                        </FormControl>
                         <Paper elevation={0} sx={{ padding: '0 0.5rem', marginTop: '1rem', height: '80vh' }}>
+                            <br />
+                            <Typography gutterBottom>Stock Values of BTC (USD) over a period of 12 months</Typography>
                             <ResponsiveContainer width='100%' height='80%'>
-                                <LineChart width={350} height={350} data={data.splice(40,)}
+                                <LineChart width={350} height={350} data={data.slice(0, 12)}
                                     margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
                                 >
                                     <Legend verticalAlign="bottom" height={16} />

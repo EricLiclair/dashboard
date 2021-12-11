@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Box, Snackbar, Alert, CircularProgress } from '@mui/material';
+import { Box, Snackbar, Alert, CircularProgress, Typography } from '@mui/material';
 import { DataGrid } from '@mui/x-data-grid';
 
 
@@ -48,7 +48,6 @@ export default function TabularData() {
         let count = 1;
         timeSeries && Object.keys(timeSeries).map((time, id1) => {
             const dateTime = timeSeries[time];
-            // console.log(dateTime)
             rows.push({
                 id: count,
                 datetime: time,
@@ -79,6 +78,8 @@ export default function TabularData() {
                 loading ? <CircularProgress size={32} /> :
                     <>
                         <Box sx={{ height: 800 }}>
+                            <br />
+                            <Typography gutterBottom>Stock Values of IBM (USD)</Typography>
                             <DataGrid columns={columns} rows={rows} />
                         </Box>
                     </>
