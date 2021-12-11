@@ -10,7 +10,7 @@ import NotAllowed from '../components/home/notAllowed';
 import { Box } from '@mui/system';
 export default function Home() {
   const { user } = useContext(UserContext);
-
+  
   // Can take only 0 or 1
   const [value, setValue] = useState(0);
   const handleChange = (event, newValue) => {
